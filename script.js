@@ -1,7 +1,7 @@
 $( document ).ready(function(){
     //Moment in Time
     function render() {   
-        var timeNow = moment().format('MMMM Do YYYY, kk:mm:ss a');
+        var timeNow = moment().format('MMMM Do YYYY, HH:mm:ss');
         var timeBlock = $(".time-block")
         $("#time-now").text(timeNow);
        timeBlock.removeClass("past present future")
