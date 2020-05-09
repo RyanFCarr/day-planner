@@ -1,17 +1,22 @@
 $( document ).ready(function(){
+
     //Moment in Time
     function render() {   
         var timeNow = moment().format('MMMM Do YYYY, HH:mm:ss');
         var timeBlock = $(".time-block")
-        $("#time-now").text(timeNow);
-       timeBlock.removeClass("past present future")
-        if(hour < moment().hour()){
-            timeBlock.addClass("past");
-        }else if(hour === moment().hour()){
-            timeBlock.addClass("present");   
-        }else{
-            timeBlock.addClass("future");
-        }
+        $("#currentDay").text(timeNow);
+        timeBlock.each(function(){
+            var hour = $(this).data('hour')
+            $(this).removeClass("past present future")
+            if(hour < moment().hour()){
+                $(this).addClass("past");
+            }else if(hour === moment().hour()){
+                $(this).addClass("present");   
+            }else{
+                $(this).addClass("future");
+            }
+        })
+        
     }
     setInterval(render, 1000);
     //BlockTemplate
